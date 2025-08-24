@@ -698,6 +698,11 @@ require('lazy').setup({
             },
           },
         },
+        -- For CSharp LSP, ensure that dotnet sdk is installed, AND that the csharp-ls is installed, see https://github.com/razzmatazz/csharp-language-server
+        -- for details.
+        -- (dotnet tool install --global csharp-ls)
+        -- Also, add this to your .bashrc (export DOTNET_ROOT=/usr/share/dotnet) so that the mason can find the tool
+        -- Make sure that you start nvim in the root folder of your csharp project in order for the lsp to work, it's probably also a good idea to build the project.
         csharp_ls = {
           filetypes = { 'cs' },
           init_options = {
